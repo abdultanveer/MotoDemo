@@ -12,8 +12,9 @@ class MainActivity : AppCompatActivity() {
  //   lateinit var tvDesc:TextView
    // lateinit var cancelBtn: Button
 
-    private lateinit var binding: ActivityMainBinding
+    var count = 0
 
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
      //  setContentView(R.layout.activity_main)
@@ -25,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.btnCancel.setOnClickListener {
-            binding.tvDesc.setText("cancelled")
+        binding.btnInc.setOnClickListener {
+            binding.tvDesc.setText(""+ ++count)
         }
         var abdul = Student("ansari",123,"jakldhaf",7654)
     }
