@@ -9,18 +9,25 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.motodemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var tvDesc:TextView
+ //   lateinit var tvDesc:TextView
+   // lateinit var cancelBtn: Button
 
-    //private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       setContentView(R.layout.activity_main)
-
+     //  setContentView(R.layout.activity_main)
+       // cancelBtn = findViewById(R.id.btnCancel)
        // createUI()
-        tvDesc = findViewById(R.id.tvDesc) //getting handle
+      //  tvDesc = findViewById(R.id.tvDesc) //getting handle
       //  Student abdul = new Student("ansari",234,"ahladf",45678);
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
+        binding.btnCancel.setOnClickListener {
+            binding.tvDesc.setText("cancelled")
+        }
         var abdul = Student("ansari",123,"jakldhaf",7654)
     }
 
@@ -34,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickHandler(view: View) {
-        tvDesc.setText("i was clicked")
+        binding.tvDesc.setText("clicked by view binding")
+        //tvDesc.setText("i was clicked")
     }
 }

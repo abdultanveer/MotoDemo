@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
         android:layout_marginTop="174dp"
-        android:text="login"
         android:onClick="clickHandler"
+        android:text="login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,4 +28,14 @@
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginBottom="7dp"
+        android:text="cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
+        app:layout_constraintStart_toEndOf="@+id/btnLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

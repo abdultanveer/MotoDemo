@@ -7,9 +7,9 @@ android {
     namespace = "com.example.motodemo"
     compileSdk = 34
 
-   /* buildFeatures {
+    buildFeatures {
         viewBinding = true
-    }*/
+    }
 
     defaultConfig {
         applicationId = "com.example.motodemo"
