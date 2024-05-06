@@ -7,6 +7,10 @@ android {
     namespace = "com.example.motodemo"
     compileSdk = 34
 
+   /* buildFeatures {
+        viewBinding = true
+    }*/
+
     defaultConfig {
         applicationId = "com.example.motodemo"
         minSdk = 24
