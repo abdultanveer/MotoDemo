@@ -4,6 +4,10 @@ import android.os.CountDownTimer
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.motodemo.data.ItemDao
+import kotlinx.coroutines.launch
+
 
 class MainViewModel:ViewModel() {
     var TAG = MainViewModel::class.java.simpleName
@@ -32,4 +36,14 @@ class MainViewModel:ViewModel() {
         fun incrementCount(){
         count++
     }
+
+
+
+
+    /*class HomeViewModelFactory(private val itemDao: ItemDao) : ViewModelProvider.Factory {
+
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            @Suppress("UNCHECKED_CAST")
+            return MainViewModel(itemDao) as T    }
+    }*/
 }
