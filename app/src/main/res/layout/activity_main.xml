@@ -48,4 +48,23 @@
         app:layout_constraintEnd_toEndOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <Button
+        android:id="@+id/btnGet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:text="get"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnInsert"
+        app:layout_constraintStart_toEndOf="@+id/btnInsert" />
+
+    <TextView
+        android:id="@+id/tvDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="70dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsert" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,8 +6,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import com.example.motodemo.data.Item
 import com.example.motodemo.data.ItemDao
 import com.example.motodemo.data.ItemRoomDatabase
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         viewModel._seconds.observe(this, secsObserver);
 
 
+
         binding.btnInc.setOnClickListener {
             viewModel.startTimer()
             binding.tvDesc.setText(""+viewModel._seconds)
@@ -79,15 +82,30 @@ class MainActivity : AppCompatActivity() {
         binding.btnInsert.setOnClickListener {
             insertDb()
         }
-        var abdul = Student("ansari",123,"jakldhaf",7654)
+        binding.btnGet.setOnClickListener {
+            retreiveDb().observe(this){
+                    itemRetreived -> binding.tvDb.text = itemRetreived.toString()
+
+            }
+        }
+
     }
 
+    fun add( a:Int){
+
+    }
     private fun insertDb() {
         GlobalScope.launch {
             var item = Item(21,"fruits",11.11,11)
             dao.insert(item)
         }
     }
+
+    fun retreiveDb(): LiveData<Item> {
+        return dao.getItem(12).asLiveData()
+
+    }
+
 
     private fun createUI() {
         var layout = ConstraintLayout(this)
