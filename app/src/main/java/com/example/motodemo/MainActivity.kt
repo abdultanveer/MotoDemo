@@ -43,11 +43,13 @@ class MainActivity : AppCompatActivity() {
 
         var secsObserver : Observer<Int> = object :Observer<Int>{
             override fun onChanged(value: Int) {
+                //receiving the update/notification
                 binding.tvDesc.setText(value.toString())
             }
         }
 
-       // viewModel._seconds.observe(this, secsObserver);
+        //im registering/subscribing secsobserver
+        viewModel._seconds.observe(this, secsObserver);
 
 
         binding.btnInc.setOnClickListener {

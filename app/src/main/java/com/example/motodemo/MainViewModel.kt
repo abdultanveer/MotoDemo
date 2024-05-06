@@ -2,14 +2,17 @@ package com.example.motodemo
 
 import android.os.CountDownTimer
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel:ViewModel() {
     var TAG = MainViewModel::class.java.simpleName
     var count = 0
     lateinit var timer: CountDownTimer
-    var _seconds:Int =  0
-  //  val seconds:Int = 0
+   // var _seconds:Int =  0
+      val _seconds = MutableLiveData<Int>()
+
+    //  val seconds:Int = 0
 
 
     fun startTimer() {
@@ -17,7 +20,7 @@ class MainViewModel:ViewModel() {
             override fun onTick(millisUntilFinished: Long) {
                 Log.i(TAG,"time remaining --"+_seconds)
 
-                _seconds = millisUntilFinished.toInt()
+                _seconds.value = millisUntilFinished.toInt()
 
             }
 
