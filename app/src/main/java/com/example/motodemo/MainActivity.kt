@@ -1,18 +1,22 @@
 package com.example.motodemo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
 import com.example.motodemo.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
  //   lateinit var tvDesc:TextView
    // lateinit var cancelBtn: Button
 
-    var count = 0
+//    var count = 0
+    lateinit var viewModel: MainViewModel
+
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +26,17 @@ class MainActivity : AppCompatActivity() {
        // createUI()
       //  tvDesc = findViewById(R.id.tvDesc) //getting handle
       //  Student abdul = new Student("ansari",234,"ahladf",45678);
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        binding.tvDesc.setText(""+viewModel.count)
 
         binding.btnInc.setOnClickListener {
-            binding.tvDesc.setText(""+ ++count)
+            viewModel.incrementCount()
+            binding.tvDesc.setText(""+ viewModel.count)
         }
         var abdul = Student("ansari",123,"jakldhaf",7654)
     }
