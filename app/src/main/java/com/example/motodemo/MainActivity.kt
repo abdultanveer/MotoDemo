@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
 
-        var secsObserver : Observer<Int> = object :Observer<Int>{
+       /* var secsObserver : Observer<Int> = object :Observer<Int>{
             override fun onChanged(value: Int) {
                 //receiving the update/notification
                 binding.tvDesc.setText(value.toString())
@@ -68,15 +68,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         //im registering/subscribing secsobserver
-        viewModel._seconds.observe(this, secsObserver);
+        viewModel._seconds.observe(this, secsObserver);*/
 
 
 
         binding.btnInc.setOnClickListener {
-            viewModel.startTimer()
-            binding.tvDesc.setText(""+viewModel._seconds)
-           /* viewModel.incrementCount()
-            binding.tvDesc.setText(""+ viewModel.count)*/
+          /*  viewModel.startTimer()
+            binding.tvDesc.setText(""+viewModel._seconds)*/
+            viewModel.incrementCount()
+          //  binding.tvDesc.setText(""+ viewModel.count)
         }
 
         binding.btnInsert.setOnClickListener {
