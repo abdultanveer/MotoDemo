@@ -89,6 +89,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        getAllItems().observe(this){
+            //INSERT INTO item (id, name, price,quantity) VALUES (321, "veggies", 33.33, 33);
+            itemsReceived -> binding.tvObserver.text = itemsReceived.toString()
+        }
+
     }
 
     fun add( a:Int){
@@ -104,6 +109,10 @@ class MainActivity : AppCompatActivity() {
     fun retreiveDb(): LiveData<Item> {
         return dao.getItem(12).asLiveData()
 
+    }
+
+    fun getAllItems():LiveData<List<Item>>{
+        return dao.getItems().asLiveData()
     }
 
 
