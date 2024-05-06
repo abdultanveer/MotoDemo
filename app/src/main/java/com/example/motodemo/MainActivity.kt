@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.motodemo.databinding.ActivityMainBinding
 
@@ -34,9 +35,26 @@ class MainActivity : AppCompatActivity() {
 
         binding.tvDesc.setText(""+viewModel.count)
 
+      /*  val secsObserver: Observer<Int> = object : Observer<Int>() {
+            fun onChanged(integer: Int) {
+                binding.tvDesc.setText(integer.toString())
+            }
+        }*/
+
+        var secsObserver : Observer<Int> = object :Observer<Int>{
+            override fun onChanged(value: Int) {
+                binding.tvDesc.setText(value.toString())
+            }
+        }
+
+       // viewModel._seconds.observe(this, secsObserver);
+
+
         binding.btnInc.setOnClickListener {
-            viewModel.incrementCount()
-            binding.tvDesc.setText(""+ viewModel.count)
+            viewModel.startTimer()
+            binding.tvDesc.setText(""+viewModel._seconds)
+           /* viewModel.incrementCount()
+            binding.tvDesc.setText(""+ viewModel.count)*/
         }
         var abdul = Student("ansari",123,"jakldhaf",7654)
     }
