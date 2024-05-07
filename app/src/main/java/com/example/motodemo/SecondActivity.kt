@@ -26,7 +26,7 @@ class SecondActivity : AppCompatActivity() {
         lifecycleScope.launch {
 
             val listResult = MarsApi.retrofitService.getPhotos()
-            binding.tvJson.text = listResult
+            binding.tvJson.text = "the json contains ${listResult.size} no of json objects"
             //_status.value = listResult
         }
         }
