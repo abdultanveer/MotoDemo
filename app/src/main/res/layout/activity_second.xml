@@ -46,4 +46,25 @@
         android:text="stop service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:text="get score"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnUnbind"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnUnbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="57dp"
+        android:text="unbind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBind"
+        app:layout_constraintTop_toBottomOf="@+id/btnStop" />
 </androidx.constraintlayout.widget.ConstraintLayout>
