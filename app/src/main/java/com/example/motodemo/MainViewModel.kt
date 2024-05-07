@@ -34,6 +34,7 @@ class MainViewModel:ViewModel() {
     }
 
         fun incrementCount(){
+            Log.i(TAG,"count is --"+count)
         count++
     }
 

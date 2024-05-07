@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import com.example.motodemo.data.Item
 import com.example.motodemo.data.ItemDao
 import com.example.motodemo.data.ItemRoomDatabase
 import com.example.motodemo.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -47,12 +49,15 @@ class MainActivity : AppCompatActivity() {
         var  database = ItemRoomDatabase.getDatabase(this)
         dao = database.itemDao()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding.lifecycleOwner = this
+
+        //.inflate(layoutInflater)
+       /* val view = binding.root
+        setContentView(view)*/
        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        binding.tvDesc.setText(""+viewModel.count)
+      //  binding.tvDesc.setText(""+viewModel.count)
 
       /*  val secsObserver: Observer<Int> = object : Observer<Int>() {
             fun onChanged(integer: Int) {
@@ -72,12 +77,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        binding.btnInc.setOnClickListener {
-          /*  viewModel.startTimer()
-            binding.tvDesc.setText(""+viewModel._seconds)*/
+      /*  binding.btnInc.setOnClickListener {
+          *//*  viewModel.startTimer()
+            binding.tvDesc.setText(""+viewModel._seconds)*//*
             viewModel.incrementCount()
           //  binding.tvDesc.setText(""+ viewModel.count)
-        }
+        }*/
 
         binding.btnInsert.setOnClickListener {
             insertDb()

@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     buildFeatures {
-        viewBinding = true
+       viewBinding = true
         dataBinding = true
 
     }
@@ -44,6 +44,11 @@ android {
 }
 
 dependencies {
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+// Retrofit with Scalar Converter
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
     implementation("androidx.room:room-common:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
     kapt ("androidx.room:room-compiler:2.6.0")
