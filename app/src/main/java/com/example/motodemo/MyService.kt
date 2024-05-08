@@ -10,7 +10,14 @@ import kotlin.random.Random
 class MyService : Service() {
     private val mybinder = LocalBinder()
 
-    override fun onCreate() {
+
+    private val aidlBinder = object : IAddMoto.Stub() {
+        override fun add(a: Int, b: Int): Int {
+            return a+b
+        }
+    }
+
+        override fun onCreate() {
         super.onCreate()
         Log.i(TAG,"service created")
     }
@@ -42,7 +49,7 @@ class MyService : Service() {
     //whenever a client[activity tries to bind to this service i'll return this binder
     override fun onBind(intent: Intent): IBinder {
         Log.i(TAG,"incoming binding requesting")
-        return  mybinder //2
+        return  aidlBinder //2
     }
 
     companion object{

@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
-import com.example.motodemo.databinding.ActivityMainBinding
 import com.example.motodemo.databinding.ActivitySecondBinding
 import com.example.motodemo.network.MarsApi
 import kotlinx.coroutines.launch
@@ -33,7 +32,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun unbindMyService() {
-        TODO("Not yet implemented")
+            unbindService(serviceConnection)
     }
 
     private fun bindMyService() {
@@ -46,6 +45,8 @@ class SecondActivity : AppCompatActivity() {
     private val serviceConnection = object : ServiceConnection {
         //3
         override fun onServiceConnected(p0: ComponentName?, mybinder: IBinder?) {
+            Log.i(TAG,"service connected")
+
             val binder = mybinder  as MyService.LocalBinder
            // mService = MyService()
             mService = binder.getInstanceMyService()
@@ -57,7 +58,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         override fun onServiceDisconnected(p0: ComponentName?) {
-            TODO("Not yet implemented")
+            Log.i(TAG,"service disconnected")
         }
     }
 

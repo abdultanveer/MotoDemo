@@ -13,6 +13,7 @@ android {
     buildFeatures {
        viewBinding = true
         dataBinding = true
+        aidl = true
 
     }
 
