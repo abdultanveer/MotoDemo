@@ -6,13 +6,21 @@ import android.os.Binder
 import android.os.IBinder
 import android.util.Log
 import kotlin.random.Random
-
+/*
+1.  i added aidl in build features of gradle = true sync
+2. select the app folder rt click -- new - aidl-aidl file
+3. gavethe name as IAddMoto and create a abstract method add(int a, int b)
+4. rebuild the project
+5.  in MyService -- create a var aidlBinder and implement the add method
+5. in manifest add the intent filter
+ */
 class MyService : Service() {
     private val mybinder = LocalBinder()
 
 
     private val aidlBinder = object : IAddMoto.Stub() {
         override fun add(a: Int, b: Int): Int {
+            Log.i(TAG,"sum is "+ a+b)
             return a+b
         }
     }
