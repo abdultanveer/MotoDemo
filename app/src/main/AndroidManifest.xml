@@ -16,13 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MotoDemo"
         tools:targetApi="31">
+        <provider
+            android:name=".MyContentProvider"
+            android:authorities="com.moto.b3"
+            android:enabled="true"
+            android:exported="true"></provider>
+
         <service
             android:name=".MyService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="moto.add.service"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="moto.add.service" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
