@@ -1,5 +1,7 @@
 package com.example.motodemo
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.example.motodemo.data.Item
@@ -101,6 +102,18 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.btnSecond.setOnClickListener {
+            launchSecondActivity()
+        }
+    }
+
+    private fun launchSecondActivity() {
+        var intent = Intent(this,SecondActivity::class.java)
+        startActivity(intent)
+    }
+
     fun add( a:Int){
 
     }
@@ -133,5 +146,9 @@ class MainActivity : AppCompatActivity() {
     fun clickHandler(view: View) {
         binding.tvDesc.setText("clicked by view binding")
         //tvDesc.setText("i was clicked")
+    }
+
+    companion object{
+        lateinit var context : Context
     }
 }

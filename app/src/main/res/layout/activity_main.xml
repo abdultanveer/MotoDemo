@@ -39,11 +39,11 @@
 
         <Button
             android:id="@+id/btnInc"
-            android:onClick="@{()-> mviewmodel.incrementCount()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="39dp"
             android:layout_marginBottom="7dp"
+            android:onClick="@{()-> mviewmodel.incrementCount()}"
             android:text="increment"
             app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
             app:layout_constraintStart_toEndOf="@+id/btnLogin" />
@@ -86,5 +86,15 @@
             app:layout_constraintEnd_toEndOf="@+id/tvDb"
             app:layout_constraintStart_toStartOf="@+id/tvDb"
             app:layout_constraintTop_toBottomOf="@+id/tvDb" />
+
+        <Button
+            android:id="@+id/btnSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="9dp"
+            android:text="launch second"
+            app:layout_constraintBottom_toTopOf="@+id/btnGet"
+            app:layout_constraintStart_toEndOf="@+id/btnGet" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

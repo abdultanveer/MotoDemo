@@ -21,6 +21,10 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        //when i hit the back button, second activity will purge but
+        //second activity will not get destroyed because its holding the reference to mainactivity.context
+         MainActivity.context = this
+
         binding.btnGetJson.setOnClickListener {
             getMarsPhotos()
         }
@@ -28,8 +32,15 @@ class SecondActivity : AppCompatActivity() {
         binding.btnStart.setOnClickListener { startMyService() }
         binding.btnStop.setOnClickListener { stopMyService() }
         binding.btnBind.setOnClickListener { bindMyService() }
-        binding.btnUnbind.setOnClickListener { unbindMyService() }
+      /*  binding.btnUnbind.setOnClickListener {
+           // unbindMyService()
+            startMainActivity()
+        }*/
     }
+
+   /* private fun startMainActivity() {
+
+    }*/
 
     private fun unbindMyService() {
             unbindService(serviceConnection)
